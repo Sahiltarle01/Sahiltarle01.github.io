@@ -9,7 +9,7 @@
   --text-color: #e5e7eb;
   --card-bg: #111827;
   --accent: #6366f1;
-  --glow: 0 0 10px rgba(99,102,241,0.6);
+  --glow: 0 0 12px rgba(99,102,241,0.6);
 }
 
 .light-theme {
@@ -23,6 +23,7 @@
 /* ===============================
    GLOBAL
 ================================ */
+
 html {
   scroll-behavior: smooth;
 }
@@ -30,7 +31,7 @@ html {
 body {
   margin: 0;
   font-family: 'Share Tech Mono', monospace;
-  background: var(--bg-color);
+  background: radial-gradient(circle at top, #1e293b, #0f172a);
   color: var(--text-color);
   overflow-x: hidden;
   line-height: 1.6;
@@ -39,15 +40,17 @@ body {
 /* ===============================
    HEADER
 ================================ */
+
 header {
   text-align: center;
-  padding: 70px 20px;
+  padding: 80px 20px;
   border-bottom: 1px solid var(--accent);
 }
 
 header h1 {
   color: var(--accent);
   margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
 .subtitle {
@@ -59,6 +62,7 @@ header h1 {
 /* ===============================
    PROFILE PHOTO
 ================================ */
+
 .profile-container {
   display: flex;
   justify-content: center;
@@ -74,6 +78,11 @@ header h1 {
   align-items: center;
   border: 3px solid var(--accent);
   box-shadow: var(--glow);
+  transition: transform 0.3s ease;
+}
+
+.profile-ring:hover {
+  transform: scale(1.05);
 }
 
 .profile-pic {
@@ -81,38 +90,40 @@ header h1 {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center top;
 }
 
 /* ===============================
    BUTTONS
 ================================ */
+
 .resume-btn {
   margin-top: 20px;
   display: inline-block;
   padding: 12px 30px;
   color: #ffffff;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), #818cf8);
   border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .resume-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--glow);
 }
 
 /* ===============================
    NAVBAR
 ================================ */
+
 nav {
   display: flex;
   justify-content: center;
   padding: 14px 20px;
   border-bottom: 1px solid var(--accent);
-  background: rgba(2,6,23,0.9);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -123,15 +134,17 @@ nav {
   margin: 0 15px;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #a5b4fc;
 }
 
 /* ===============================
    SECTIONS
 ================================ */
+
 .section {
   max-width: 900px;
   margin: auto;
@@ -149,6 +162,7 @@ h2 {
 /* ===============================
    ABOUT
 ================================ */
+
 #about p {
   margin-bottom: 14px;
   opacity: 0.95;
@@ -157,6 +171,7 @@ h2 {
 /* ===============================
    SKILLS
 ================================ */
+
 .skill {
   margin-bottom: 22px;
 }
@@ -188,8 +203,35 @@ h2 {
 }
 
 /* ===============================
+   TECH STACK
+================================ */
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.tech-item {
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: 0.3s ease;
+}
+
+.tech-item:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ===============================
    TIMELINE
 ================================ */
+
 .timeline {
   position: relative;
   margin-top: 40px;
@@ -199,6 +241,11 @@ h2 {
 
 .timeline-item {
   margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(6px);
 }
 
 .timeline-dot {
@@ -213,12 +260,14 @@ h2 {
 .timeline-content {
   background: var(--card-bg);
   padding: 18px;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 /* ===============================
    PROJECTS
 ================================ */
+
 .project {
   background: var(--card-bg);
   border: 1px solid var(--accent);
@@ -230,7 +279,7 @@ h2 {
 
 .project:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(99,102,241,0.25);
+  box-shadow: var(--glow);
 }
 
 .project a {
@@ -242,6 +291,7 @@ h2 {
 /* ===============================
    CERTIFICATES
 ================================ */
+
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -254,21 +304,17 @@ h2 {
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cert-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: var(--glow);
 }
 
 .cert-card h3 {
   color: var(--accent);
   margin-bottom: 10px;
-}
-
-.cert-card p {
-  font-size: 0.85rem;
-  opacity: 0.9;
 }
 
 .cert-card a {
@@ -279,13 +325,10 @@ h2 {
   text-decoration: none;
 }
 
-.cert-card a:hover {
-  text-decoration: underline;
-}
-
 /* ===============================
    CONTACT
 ================================ */
+
 form {
   max-width: 500px;
   margin: auto;
@@ -304,12 +347,17 @@ form textarea {
 }
 
 form button {
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), #818cf8);
   color: #ffffff;
   border: none;
   padding: 12px;
   border-radius: 30px;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+form button:hover {
+  box-shadow: var(--glow);
 }
 
 .contact-info {
@@ -321,6 +369,7 @@ form button {
 /* ===============================
    FOOTER
 ================================ */
+
 footer {
   text-align: center;
   padding: 25px;
@@ -331,6 +380,7 @@ footer {
 /* ===============================
    ANIMATIONS
 ================================ */
+
 .hidden {
   opacity: 0;
   transform: translateY(30px);
@@ -345,7 +395,9 @@ footer {
 /* ===============================
    RESPONSIVE
 ================================ */
+
 @media (max-width: 768px) {
+
   nav {
     flex-direction: column;
   }
@@ -363,18 +415,4 @@ footer {
   h2 {
     font-size: 1.2rem;
   }
-}
-/* ===============================
-   EXPERIENCE LIST STYLING
-================================ */
-
-#experience ul {
-  margin-top: 10px;
-  padding-left: 18px;
-}
-
-#experience ul li {
-  font-size: 0.85rem;
-  margin-bottom: 6px;
-  opacity: 0.9;
 }
