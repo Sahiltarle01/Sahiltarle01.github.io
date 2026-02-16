@@ -39,11 +39,13 @@ This is my personal portfolio website built to showcase my skills, projects, and
 👉 [https://sahiltarle01.github.io/](https://sahiltarle01.github.io/)
 
 ## 📸 Screenshots
-<img width="1920" height="1080" alt="Portfolio" src="https://github.com/user-attachments/assets/7c79febf-3494-4aba-a2db-3f87d2a2e0bf" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/93ead4fc-787c-4027-86e6-ea722c6b1cca" />
+" />
 
 
 ## 📧 Contact
 
 Linkedin: https://www.linkedin.com/in/sahil-tarle01
 mail: sahiltarle2006@gmail.com
+
 
